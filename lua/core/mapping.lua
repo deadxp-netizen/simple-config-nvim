@@ -17,3 +17,6 @@ vim.keymap.set('i','fg','<ESC>')
 vim.keymap.set('n','fg','<INSERT>')
 
 vim.keymap.set('i','C-v','<ESC>')
+
+vim.keymap.set('n', "<F2>", ":set number!<CR>")
+vim.keymap.set('i', "<F2>", "<ESC> :set number!<CR>")

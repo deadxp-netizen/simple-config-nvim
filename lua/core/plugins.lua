@@ -30,6 +30,29 @@ require("lazy").setup({
 	{'tpope/vim-fugitive'},							--
 	{'majutsushi/tagbar'},							--
 	{'tell-k/vim-autopep8'},						--
-	{'tpope/vim-commentary'}
-	--{'klen/python-mode'}
+	{'tpope/vim-commentary'},
+	{
+		"coffebar/transfer.nvim",
+		lazy = true,
+		cmd = { 
+			"TransferInit",
+			"DiffRemote",
+			"TransferUpload",
+			"TransferDownload",
+			"TransferDirDiff",
+			"TransferRepeat"
+		},
+		opts = {},
+	},
+	{
+		"Exafunction/codeium.nvim",
+		dependencies = {
+			"nvim-lua/plenary.nvim",
+			"hrsh7th/nvim-cmp",
+		},
+		config = function()
+			require("codeium").setup({
+			})
+		end
+	},
 })

@@ -20,3 +20,6 @@ vim.keymap.set('i','C-v','<ESC>')
 
 vim.keymap.set('n', "<F2>", ":set number!<CR>")
 vim.keymap.set('i', "<F2>", "<ESC> :set number!<CR>")
+
+vim.keymap.set('n', "<F8>", ":TagbarToggle<CR>")
+vim.keymap.set('i', "<F8>", "<ESC> :TagbarToggle<CR>")

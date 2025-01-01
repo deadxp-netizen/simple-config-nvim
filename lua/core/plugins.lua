@@ -55,4 +55,5 @@ require("lazy").setup({
 			})
 		end
 	},
+	{'yaegassy/coc-pylsp'}
 })

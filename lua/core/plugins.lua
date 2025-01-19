@@ -14,10 +14,17 @@ if not (vim.uv or vim.loop).fs_stat(lazypath) then
 end
 vim.opt.rtp:prepend(lazypath)
 
-require("lazy").setup({
+require("lazy").setup({{
+    "lukas-reineke/indent-blankline.nvim",
+    main = "ibl",
+    ---@module "ibl"
+    ---@type ibl.config
+    opts = {},
+},	
+	{'solvedbiscuit71/vim-autopair'},
+	{'mhinz/vim-startify'},
 	{'morhetz/gruvbox'},							--gruvbox
 	{'mhartington/oceanic-next'},					--colorcheme ocaeanic-next
-	{'scrooloose/nerdtree'},						--nerdtree
 	{'nvim-treesitter/nvim-treesitter'},			--nvim-treesitter
 	{'neovim/nvim-lspconfig'},						--lsp
 	{'hrsh7th/cmp-nvim-lsp'},						--cmp
@@ -26,7 +33,7 @@ require("lazy").setup({
 	{'hrsh7th/cmp-cmdline'},						--cmp
 	{'hrsh7th/nvim-cmp'},							--cmp
 	{'tpope/vim-surround'},							--cs'" ysiw'  
-	{'vim-airline/vim-airline'},					--строка состояния airline
+	--{'vim-airline/vim-airline'},					--строка состояния airline
 	{'tpope/vim-fugitive'},							--
 	{'majutsushi/tagbar'},							--
 	{'tell-k/vim-autopep8'},						--
@@ -55,5 +62,11 @@ require("lazy").setup({
 			})
 		end
 	},
-	{'yaegassy/coc-pylsp'}
+	{'yaegassy/coc-pylsp'},
+	{'xiyaowong/transparent.nvim'},
+	{
+    'nvim-lualine/lualine.nvim',
+    },
+	{ 'nvim-tree/nvim-web-devicons' },
+	{'ryanoasis/vim-devicons'},{'neoclide/coc.nvim', branch = 'release'}
 })

@@ -1,6 +1,6 @@
 vim.g.mapleader=" "
 
-vim.keymap.set('n','<C-n>',':NERDTree<CR>')
+vim.keymap.set('n','<C-n>',':CocCommand explorer --toggle --content-width 30 --content-width-type min-width<CR>')
 
 vim.keymap.set('n','<C-s>',':w<CR>')
 vim.keymap.set('n','<C-q>',':q!<CR>')

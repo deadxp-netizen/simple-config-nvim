@@ -2,7 +2,7 @@ local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 if not (vim.uv or vim.loop).fs_stat(lazypath) then
   local lazyrepo = "https://github.com/folke/lazy.nvim.git"
   local out = vim.fn.system({ "git", "clone", "--filter=blob:none", "--branch=stable", lazyrepo, lazypath })
-  if vim.v.shell_error ~= 0 then
+if vim.v.shell_error ~= 0 then
     vim.api.nvim_echo({
       { "Failed to clone lazy.nvim:\n", "ErrorMsg" },
       { out, "WarningMsg" },
@@ -14,15 +14,16 @@ if not (vim.uv or vim.loop).fs_stat(lazypath) then
 end
 vim.opt.rtp:prepend(lazypath)
 
-require("lazy").setup({{
+require("lazy").setup({
+	 {
     "lukas-reineke/indent-blankline.nvim",
     main = "ibl",
     ---@module "ibl"
     ---@type ibl.config
     opts = {},
 },	
-	{'solvedbiscuit71/vim-autopair'},
-	{'mhinz/vim-startify'},
+	 {'solvedbiscuit71/vim-autopair'},
+	 {'mhinz/vim-startify'},
 	{'morhetz/gruvbox'},							--gruvbox
 	{'mhartington/oceanic-next'},					--colorcheme ocaeanic-next
 	{'nvim-treesitter/nvim-treesitter'},			--nvim-treesitter
@@ -33,7 +34,7 @@ require("lazy").setup({{
 	{'hrsh7th/cmp-cmdline'},						--cmp
 	{'hrsh7th/nvim-cmp'},							--cmp
 	{'tpope/vim-surround'},							--cs'" ysiw'  
-	--{'vim-airline/vim-airline'},					--строка состояния airline
+	{'vim-airline/vim-airline'},					--строка состояния airline
 	{'tpope/vim-fugitive'},							--
 	{'majutsushi/tagbar'},							--
 	{'tell-k/vim-autopep8'},						--
@@ -62,11 +63,29 @@ require("lazy").setup({{
 			})
 		end
 	},
-	{'yaegassy/coc-pylsp'},
+	-- {'yaegassy/coc-pylsp'},
 	{'xiyaowong/transparent.nvim'},
 	{
     'nvim-lualine/lualine.nvim',
     },
 	{ 'nvim-tree/nvim-web-devicons' },
-	{'ryanoasis/vim-devicons'},{'neoclide/coc.nvim', branch = 'release'}
+	{'ryanoasis/vim-devicons'},{'neoclide/coc.nvim', branch = 'release'},
+	{
+		"https://git.sr.ht/~whynothugo/lsp_lines.nvim",
+		config = function()
+			require("lsp_lines").setup()
+		end,
+	},
+	{'dense-analysis/ale'}
+
 })
+
+vim.g.ale_enabled = 1
+vim.g.ale_lint_on_text_changed = 'always'
+vim.g.ale_lint_on_enter = 1
+
+vim.g.ale_linters = { python = { 'flake8', 'pylint' } }
+vim.g.ale_fixers = { python = { 'black', 'isort' } }
+
+vim.cmd('let $PYTHONPATH = "/home/tol-deb/JOB/LeadBurn/"')
+vim.cmd('let $PYTHONPATH = "/home/tol-deb/JOB/LeadBurn/app"')

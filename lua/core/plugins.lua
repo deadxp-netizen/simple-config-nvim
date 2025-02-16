@@ -25,7 +25,6 @@ require("lazy").setup({
 	 {'solvedbiscuit71/vim-autopair'},
 	 {'mhinz/vim-startify'},
 	{'morhetz/gruvbox'},							--gruvbox
-	{'mhartington/oceanic-next'},					--colorcheme ocaeanic-next
 	{'nvim-treesitter/nvim-treesitter'},			--nvim-treesitter
 	{'neovim/nvim-lspconfig'},						--lsp
 	{'hrsh7th/cmp-nvim-lsp'},						--cmp
@@ -33,7 +32,6 @@ require("lazy").setup({
 	{'hrsh7th/cmp-path'},							--cmp
 	{'hrsh7th/cmp-cmdline'},						--cmp
 	{'hrsh7th/nvim-cmp'},							--cmp
-	{'tpope/vim-surround'},							--cs'" ysiw'  
 	{'vim-airline/vim-airline'},					--строка состояния airline
 	{'tpope/vim-fugitive'},							--
 	{'majutsushi/tagbar'},							--
@@ -42,7 +40,7 @@ require("lazy").setup({
 	{
 		"coffebar/transfer.nvim",
 		lazy = true,
-		cmd = { 
+		cmd = {
 			"TransferInit",
 			"DiffRemote",
 			"TransferUpload",
@@ -63,29 +61,27 @@ require("lazy").setup({
 			})
 		end
 	},
-	-- {'yaegassy/coc-pylsp'},
 	{'xiyaowong/transparent.nvim'},
 	{
     'nvim-lualine/lualine.nvim',
     },
 	{ 'nvim-tree/nvim-web-devicons' },
-	{'ryanoasis/vim-devicons'},{'neoclide/coc.nvim', branch = 'release'},
-	{
-		"https://git.sr.ht/~whynothugo/lsp_lines.nvim",
-		config = function()
-			require("lsp_lines").setup()
-		end,
-	},
-	{'dense-analysis/ale'}
-
+	{'dense-analysis/ale'},
+	{'voldikss/vim-floaterm'},
+	{'tpope/vim-endwise'},
+	{'VonHeikemen/fine-cmdline.nvim'},
+	{'MunifTanjim/nui.nvim'},
+    {'lsp_lines.nvim'},
+    {'nvim-neo-tree/neo-tree.nvim'},
+    {'nvim-tree/nvim-web-devicons'}
 })
 
 vim.g.ale_enabled = 1
 vim.g.ale_lint_on_text_changed = 'always'
 vim.g.ale_lint_on_enter = 1
 
-vim.g.ale_linters = { python = { 'flake8', 'pylint' } }
+vim.g.ale_linters = { python = { 'flake8', 'pylint'} }
 vim.g.ale_fixers = { python = { 'black', 'isort' } }
 
-vim.cmd('let $PYTHONPATH = "/home/tol-deb/JOB/LeadBurn/"')
-vim.cmd('let $PYTHONPATH = "/home/tol-deb/JOB/LeadBurn/app"')
+-- vim.cmd('let $PYTHONPATH = "/home/tol-deb/JOB/LeadBurn/"')
+-- vim.cmd('let $PYTHONPATH = "/home/tol-deb/JOB/LeadBurn/app"')
